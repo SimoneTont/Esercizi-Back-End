@@ -21,15 +21,15 @@
     <div class="d-flex justify-content-center">';
         <div class="m-5 d-flex">';
             <?php
+            $arr = [[], [], [], [], []];
+            $arr = array('Birds' => ['https://archives.bulbagarden.net/media/upload/d/d0/0144Articuno.png', 'https://archives.bulbagarden.net/media/upload/c/c6/0145Zapdos.png', 'https://archives.bulbagarden.net/media/upload/2/21/0146Moltres.png'], 
+            'Dogs' => ['https://archives.bulbagarden.net/media/upload/d/dc/0245Suicune.png', 'https://archives.bulbagarden.net/media/upload/4/48/0243Raikou.png', 'https://archives.bulbagarden.net/media/upload/2/2b/0244Entei.png'],
+            'Meteo' => ['https://archives.bulbagarden.net/media/upload/2/28/0383Groudon.png', 'https://archives.bulbagarden.net/media/upload/5/51/0382Kyogre.png', 'https://archives.bulbagarden.net/media/upload/8/80/0384Rayquaza.png'],
+            'Creation' => ['https://archives.bulbagarden.net/media/upload/4/43/0483Dialga.png', 'https://archives.bulbagarden.net/media/upload/b/b7/0484Palkia.png', 'https://archives.bulbagarden.net/media/upload/8/81/0487Giratina.png'],
+            'Lake Guardians' => ['https://archives.bulbagarden.net/media/upload/2/24/0481Mesprit.png', 'https://archives.bulbagarden.net/media/upload/1/18/0480Uxie.png', 'https://archives.bulbagarden.net/media/upload/a/ac/0482Azelf.png']);
 
-            $arr1 = array('https://archives.bulbagarden.net/media/upload/d/d0/0144Articuno.png', 'https://archives.bulbagarden.net/media/upload/c/c6/0145Zapdos.png', 'https://archives.bulbagarden.net/media/upload/2/21/0146Moltres.png');
-            $arr2 = array('https://archives.bulbagarden.net/media/upload/d/dc/0245Suicune.png', 'https://archives.bulbagarden.net/media/upload/4/48/0243Raikou.png', 'https://archives.bulbagarden.net/media/upload/2/2b/0244Entei.png');
-            $arr3 = array('https://archives.bulbagarden.net/media/upload/2/28/0383Groudon.png', 'https://archives.bulbagarden.net/media/upload/5/51/0382Kyogre.png', 'https://archives.bulbagarden.net/media/upload/8/80/0384Rayquaza.png');
-            $arr4 = array('https://archives.bulbagarden.net/media/upload/4/43/0483Dialga.png', 'https://archives.bulbagarden.net/media/upload/b/b7/0484Palkia.png', 'https://archives.bulbagarden.net/media/upload/8/81/0487Giratina.png');
-            $arr5 = array('https://archives.bulbagarden.net/media/upload/2/24/0481Mesprit.png', 'https://archives.bulbagarden.net/media/upload/1/18/0480Uxie.png', 'https://archives.bulbagarden.net/media/upload/a/ac/0482Azelf.png');
 
-
-            foreach ($arr1 as $key => $value) {
+            foreach ($arr['Birds'] as $key => $value) {
                 echo '<p><img class="myImg" src="' . $value . '"/></p>';
             }
             ?>
@@ -40,7 +40,7 @@
     <div class="d-flex justify-content-center">';
         <div class="m-5 d-flex">';
             <?php
-            foreach ($arr2 as $key => $value) {
+            foreach ($arr['Dogs'] as $key => $value) {
                 echo '<p><img class="myImg" src="' . $value . '"/></p>';
             }
             ?>
@@ -51,7 +51,7 @@
     <div class="d-flex justify-content-center">';
         <div class="m-5 d-flex">';
             <?php
-            foreach ($arr3 as $key => $value) {
+            foreach ($arr['Meteo'] as $key => $value) {
                 echo '<p><img class="myImg" src="' . $value . '"/></p>';
             }
             ?>
@@ -62,7 +62,7 @@
     <div class="d-flex justify-content-center">';
         <div class="m-5 d-flex">';
             <?php
-            foreach ($arr4 as $key => $value) {
+            foreach ($arr['Creation'] as $key => $value) {
                 echo '<p><img class="myImg" src="' . $value . '"/></p>';
             }
             ?>
@@ -73,9 +73,10 @@
     <div class="d-flex justify-content-center">';
         <div class="m-5 d-flex">';
             <?php
-            foreach ($arr5 as $key => $value) {
+            foreach ($arr['Lake Guardians'] as $key => $value) {
                 echo '<p><img class="myImg" src="' . $value . '"/></p>';
             }
+            
             ?>
         </div>';
     </div>';
@@ -83,11 +84,12 @@
     <p class="h2 text-center">Random match</p>';
     <div class="m-5 d-flex justify-content-center align-items-center">';
         <?php
-        $bigArr = (array_merge($arr1, $arr2, $arr3, $arr4, $arr5));
-        $randomMatch = array_rand($bigArr, 2);
-        echo '<img class="myImg" src="' . $bigArr[$randomMatch[0]] . '"/>';
+        $randomGroup = array_rand($arr, 2);
+        $randomSelector = rand(0,2);
+        echo '<img class="myImg" src="' . $arr[$randomGroup[0]][$randomSelector] . '"/>';
+        $randomSelector = rand(0,2);
         echo '<p class ="h1"> VS </p>';
-        echo '<img class="myImg" src="' . $bigArr[$randomMatch[1]] . '"/>';
+        echo '<img class="myImg" src="' . $arr[$randomGroup[1]][$randomSelector] . '"/>';
         ?>
     </div>
 </body>
