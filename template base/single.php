@@ -1,47 +1,48 @@
 <?php get_header(); ?>
 
 <div class="container text-center">
-    <div class="row">
-    <div class="col-8">
-	<?php if (have_posts()) :?><?php while(have_posts()) : the_post(); ?>
-        
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="row">
+		<div class="col-8">
+			<?php if (have_posts()) : ?><?php while (have_posts()) : the_post(); ?>
 
-			<h1 class="content__title"><?php the_title(); ?></h1>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-			<p> <?php the_time('j M , Y') ?> - <?php the_category(', '); ?></p>
+				<h1 class="content__title"><?php the_title(); ?></h1>
 
-			<a href="<?php the_permalink(); ?>">
-			  <?php the_post_thumbnail('miotema_single', array('class' => 'img-res','alt' => get_the_title())); ?>
-			</a>
+				<p> <?php the_time('j M , Y') ?> - <?php the_category(', '); ?></p>
 
-			<?php the_content();?>
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('miotema_single', array('class' => 'img-res', 'alt' => get_the_title())); ?>
+				</a>
 
-			<?php $post_tags = wp_get_post_tags($post->ID);
-			if(!empty($post_tags)) {?>
-				<p class="tag"> <small> <strong><?php esc_html_e('Tag: ', 'miotema'); ?></strong>  </small> <br/> <?php the_tags('', ' ', ''); ?></p>
-			<?php } ?>
+				<?php the_content(); ?>
+
+				<?php $post_tags = wp_get_post_tags($post->ID);
+											if (!empty($post_tags)) { ?>
+					<p class="tag"> <small> <strong><?php esc_html_e('Tag: ', 'miotema'); ?></strong> </small> <br /> <?php the_tags('', ' ', ''); ?></p>
+				<?php } ?>
 
 
-			<div class="comments">
-				<?php comments_template();?>
-			</div>
+				<div class="comments">
+					<?php comments_template(); ?>
+				</div>
 
-		</article>
+			</article>
 
-	<?php endwhile; else : ?>
+		<?php endwhile;
+									else : ?>
 
-	  <h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
+		<h3> <?php esc_html_e('Sorry, no posts matched your criteria.', 'miotema'); ?> </h3>
 
 	<?php endif; ?>
-    
-    </div>
 
-    
-    <div class="col-4">
-            <?php get_sidebar(); ?>
-        </div>
-        </div>
+		</div>
+
+
+		<div class="col-4">
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
 
 </div>
 
