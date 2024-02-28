@@ -14,9 +14,6 @@
             ?>
 
         </div>
-        <div class="col-4">
-            <?php get_sidebar(); ?>
-        </div>
     </div>
 </div>
 

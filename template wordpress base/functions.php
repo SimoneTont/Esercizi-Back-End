@@ -134,7 +134,7 @@ function bd_customizer( $wp_customize ) {
     $wp_customize->add_section(
         'MyLogo',
         array(
-        	'priority'      => 2, // Priority non è essenziale
+        	'priority'      => 1, // Priority non è essenziale
             'title' 		=> __('Logo','esercizio'),
 			'panel'  		=> 'header_section',
 		)
@@ -155,7 +155,7 @@ function bd_customizer( $wp_customize ) {
     $wp_customize->add_section(
         'title_tagline',
         array(
-        	'priority'      => 1, // Priority non è essenziale
+        	'priority'      => 3, // Priority non è essenziale
             'title' 		=> __('Site Identity','esercizio'),
 			'panel'  		=> 'header_section',
 		)
