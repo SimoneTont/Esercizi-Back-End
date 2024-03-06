@@ -1,4 +1,7 @@
 <?php
+
+//use Materiale\MaterialeBibliotecario;
+
 require_once 'classes/materiale.php';
 require_once 'config.php';
 require_once 'functions.php';
@@ -21,7 +24,10 @@ class Dvd implements Prestito
             if (!$mysqli->query($sql)) {
                 return 'Errore durante il prestito del DVD.';
             }
-            return 'DVD prestato.';
+            else
+            {
+                return 'DVD prestato.';
+            }
         } else {
             return 'Non ci sono DVD disponibili per il prestito.';
         }
@@ -160,7 +166,7 @@ if (isset($_POST['restituisciLibro'])) {
     echo '<p>Libri Prestati: ' . $libriPrestati . '</p>';
     echo '<p>Attualmente in biblioteca: ' . $attuali . '</p>';
     echo '<p>Prestiti totali: ' . $prestati . '</p>';
-    
+    //echo '<p> UserCount: '. MaterialeBibliotecario::contatoreMateriali() .'</p>';
     ?>
 </body>
 
