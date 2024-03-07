@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/greeting', function () { // http://localhost/PrimoEsercizioLaravel/public/greeting
+    return 'Hello World!';
+});

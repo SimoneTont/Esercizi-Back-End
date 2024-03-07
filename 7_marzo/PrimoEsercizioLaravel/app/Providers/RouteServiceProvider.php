@@ -35,6 +35,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+                // Carico un gruppo di rotte definite in routes/admin.php sotto il prefisso admin
+            Route::middleware('web')
+            ->prefix('attivita')
+            ->group(base_path('routes/esercizio/attivita.php'));
         });
     }
 }
